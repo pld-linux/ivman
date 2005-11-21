@@ -1,0 +1,68 @@
+#!/bin/sh
+#
+# haldaemon:   ivman daemon
+#
+# chkconfig: 345 99 01
+# description:  An extremely flexible desktop independent frontend to HAL
+#
+# processname: ivman
+# pidfile: /var/run/ivman.pid
+#
+
+# Sanity checks.
+[ -x /usr/bin/ivman ] || exit 0
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+
+# so we can rearrange this easily
+processname=ivman
+servicename=ivman
+
+RETVAL=0
+# See how we were called.
+case "$1" in
+    start)
+        # Check if the service is already running?
+        if [ ! -f /var/lock/subsys/$servicename ]; then
+            msg_starting $servicename
+            daemon $servicename $processname
+            RETVAL=$?
+            [ $RETVAL -eq 0 ] && touch /var/lock/subsys/$servicename
+        else
+	    msg_already_running $servicename
+	fi
+	;;
+    stop)
+        # Stop daemons.
+        if [ -f /var/lock/subsys/$servicename ]; then
+            msg_stopping $servicename
+            killproc $servicename -TERM
+            rm -f /var/lock/subsys/$servicename >/dev/null 2>&1
+            rm -f /var/run/$processname.pid >/dev/null 2>&1
+        else
+            msg_not_running $servicename
+        fi
+        ;;
+    status)
+        status $processname
+        RETVAL=$?
+        ;;
+    restart)
+        $0 stop
+	sleep 3
+        $0 start
+        ;;
+    condrestart)
+        if [ -f /var/lock/subsys/$servicename ]; then
+            $0 stop
+	    sleep 3
+            $0 start
+        fi
+        ;;
+    *)
+        echo $"Usage: $0 {start|stop|status|restart|condrestart}"
+        ;;
+esac
+
+exit $RETVAL
