@@ -1,5 +1,5 @@
 Summary:	An extremely flexible desktop independent frontend to HAL
-Summary(pl):	Wysoce konfigurowalny, niezale¿ny od menad¿era okien frontend do HAL
+Summary(pl):	Wysoce konfigurowalny, niezale¿ny od zarz±dcy okien frontend do HAL
 Name:		ivman
 Version:	0.6.5
 Release:	1
@@ -14,7 +14,6 @@ BuildRequires:	dbus-glib-devel >= 0.3
 BuildRequires:	glib2-devel >= 2.6
 BuildRequires:	hal-devel >= 0.4
 BuildRequires:	libxml2-devel >= 2.6.17
-Requires(post,preun):	rc-scripts >= 0.2.0
 Requires(post,preun):	/sbin/chkconfig
 Requires(pre):  /bin/id
 Requires(pre):  /usr/bin/getgid
@@ -23,6 +22,7 @@ Requires(pre):  /usr/sbin/groupadd
 Requires(postun):	/usr/sbin/userdel
 Requires(postun):	/usr/sbin/groupdel
 Requires:	hal >= 0.4
+Requires:	rc-scripts >= 0.2.0
 Provides:	user(ivman)
 Provides:	group(plugdev)
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -44,9 +44,9 @@ urz±dzenia mog± byæ wykorzystane w wykonywanym poleceniu.
 
 %package devel
 Summary:	Development files for ivman
-Summary(pl):	Pliki niezbêdne programistom dla ivman
+Summary(pl):	Pliki niezbêdne programistom u¿ywaj±cym ivmana
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Ivman is an extremely flexible desktop independent frontend to HAL,
@@ -54,8 +54,8 @@ the userspace Hardware Abstraction Layer for Linux. It can be used to
 execute arbitrary commands when devices are added to or removed from
 your system, when device properties change, or when devices emit
 conditions. Any properties of the new or changed device can be
-included within the executed command. This package contains files need
-for development.
+included within the executed command. This package contains files
+needed for development.
 
 %description devel -l pl
 Ivman jest wysoce konfigurowalnym frontendem do HAL (Hardware
@@ -67,9 +67,9 @@ zawiera pliki niezbêdne programistom.
 
 %package static
 Summary:	Static libraries for ivman
-Summary(pl):	Biblioteki statyczne dla ivman
+Summary(pl):	Biblioteki statyczne ivman
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Ivman is an extremely flexible desktop independent frontend to HAL,
@@ -149,8 +149,8 @@ fi
 
 %files devel
 %defattr(644,root,root,755)
-%{_libdir}/*.la
 %attr(755,root,root) %{_libdir}/*.so
+%{_libdir}/*.la
 
 %files static
 %defattr(644,root,root,755)
