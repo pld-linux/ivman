@@ -3,7 +3,7 @@ Summary(pl):	Wysoce konfigurowalny, niezale¿ny od zarz±dcy okien frontend do HAL
 Name:		ivman
 Version:	0.6.5
 Release:	1
-License:	GPL
+License:	QPL
 Group:		Daemons
 Source0:	http://dl.sourceforge.net/ivman/%{name}-%{version}.tar.bz2
 # Source0-md5:	0d83d1d5df716c120de201d5cf3e6e9b
@@ -47,6 +47,10 @@ Summary:	Development files for ivman
 Summary(pl):	Pliki niezbêdne programistom u¿ywaj±cym ivmana
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	dbus-glib-devel >= 0.3
+Requires:	glib2-devel >= 2.6
+Requires:	hal-devel >= 0.4
+Requires:	libxml2-devel >= 2.6.17
 
 %description devel
 Ivman is an extremely flexible desktop independent frontend to HAL,
@@ -143,15 +147,15 @@ fi
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/ivman/*
 %attr(754,root,root) /etc/rc.d/init.d/*
 %attr(755,root,root) %{_bindir}/ivman
-%attr(755,root,root) %{_libdir}/libIvmConfig.so.*
+%attr(755,root,root) %{_libdir}/libIvmConfig.so.*.*.*
 %{_mandir}/man5/*.5*
 %{_mandir}/man8/*.8*
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/*.so
-%{_libdir}/*.la
+%attr(755,root,root) %{_libdir}/libIvmConfig.so
+%{_libdir}/libIvmConfig.la
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/*.a
+%{_libdir}/libIvmConfig.a
