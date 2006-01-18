@@ -1,12 +1,12 @@
 #!/bin/sh
 #
-# haldaemon:   ivman daemon
+# ivman		ivman daemon
 #
-# chkconfig: 345 99 01
-# description:  An extremely flexible desktop independent frontend to HAL
+# chkconfig:	345 99 01
+# description:	An extremely flexible desktop independent frontend to HAL
 #
-# processname: ivman
-# pidfile: /var/run/ivman.pid
+# processname:	ivman
+# pidfile:	/var/run/ivman.pid
 #
 
 # Sanity checks.
@@ -48,10 +48,11 @@ case "$1" in
         status $processname
         RETVAL=$?
         ;;
-    restart)
+    restart|force-reload)
         $0 stop
 	sleep 3
         $0 start
+	RETVAL=$?
         ;;
     condrestart)
         if [ -f /var/lock/subsys/$servicename ]; then
@@ -61,8 +62,8 @@ case "$1" in
         fi
         ;;
     *)
-        echo $"Usage: $0 {start|stop|status|restart|condrestart}"
-        ;;
+        echo $"Usage: $0 {start|stop|restart|condrestart|force-reload|status}"
+	exit 3
 esac
 
 exit $RETVAL
