@@ -9,10 +9,13 @@ Source0:	http://ovh.dl.sourceforge.net/sourceforge/ivman/%{name}-%{version}.tar.
 # Source0-md5:	031c763d6acc927bf2fefd7c6140247d
 Source1:	%{name}.init
 URL:		http://ivman.sourceforge.net
+BuildRequires:	autoconf >= 2.50
+BuildRequires:	automake
 BuildRequires:	dbus-devel >= 0.34
 BuildRequires:	dbus-glib-devel >= 0.3
 BuildRequires:	glib2-devel >= 2.6
 BuildRequires:	hal-devel >= 0.4
+BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.6.17
 BuildRequires:	pkgconfig
 Requires(post,preun):	/sbin/chkconfig
@@ -49,6 +52,11 @@ urz±dzenia mog± byæ wykorzystane w wykonywanym poleceniu.
 %setup -q
 
 %build
+%{__libtoolize}
+%{__aclocal} -I m4
+%{__autoconf}
+%{__autoheader}
+%{__automake}
 %configure
 
 %{__make} \
