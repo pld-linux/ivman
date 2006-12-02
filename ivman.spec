@@ -1,12 +1,12 @@
 Summary:	An extremely flexible desktop independent frontend to HAL
 Summary(pl):	Wysoce konfigurowalny, niezale¿ny od zarz±dcy okien frontend do HAL
 Name:		ivman
-Version:	0.6.12
+Version:	0.6.13
 Release:	1
 License:	QPL
 Group:		Daemons
 Source0:	http://ovh.dl.sourceforge.net/sourceforge/ivman/%{name}-%{version}.tar.bz2
-# Source0-md5:	031c763d6acc927bf2fefd7c6140247d
+# Source0-md5:	0edfa11c099a3f421cca029eacca5349
 Source1:	%{name}.init
 URL:		http://ivman.sourceforge.net
 BuildRequires:	autoconf >= 2.50
