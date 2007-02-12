@@ -1,5 +1,5 @@
 Summary:	An extremely flexible desktop independent frontend to HAL
-Summary(pl):	Wysoce konfigurowalny, niezale¿ny od zarz±dcy okien frontend do HAL
+Summary(pl.UTF-8):   Wysoce konfigurowalny, niezaleÅ¼ny od zarzÄ…dcy okien frontend do HAL
 Name:		ivman
 Version:	0.6.13
 Release:	1
@@ -41,12 +41,12 @@ your system, when device properties change, or when devices emit
 conditions. Any properties of the new or changed device can be
 included within the executed command.
 
-%description -l pl
+%description -l pl.UTF-8
 Ivman jest wysoce konfigurowalnym frontendem do HAL (Hardware
-Abstraction Layer). Mo¿e byæ u¿ywany do wykonywania poleceñ podczas
-dodawania, usuwania urz±dzeñ, zmiany ich w³a¶ciwo¶ci b±d¼ te¿ w
-odpowiedzi na komunikaty pochodz±ce od urz±dzeñ. Wszelkie w³a¶ciwo¶ci
-urz±dzenia mog± byæ wykorzystane w wykonywanym poleceniu.
+Abstraction Layer). MoÅ¼e byÄ‡ uÅ¼ywany do wykonywania poleceÅ„ podczas
+dodawania, usuwania urzÄ…dzeÅ„, zmiany ich wÅ‚aÅ›ciwoÅ›ci bÄ…dÅº teÅ¼ w
+odpowiedzi na komunikaty pochodzÄ…ce od urzÄ…dzeÅ„. Wszelkie wÅ‚aÅ›ciwoÅ›ci
+urzÄ…dzenia mogÄ… byÄ‡ wykorzystane w wykonywanym poleceniu.
 
 %prep
 %setup -q
