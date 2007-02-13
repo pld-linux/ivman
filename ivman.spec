@@ -1,5 +1,5 @@
 Summary:	An extremely flexible desktop independent frontend to HAL
-Summary(pl.UTF-8):   Wysoce konfigurowalny, niezależny od zarządcy okien frontend do HAL
+Summary(pl.UTF-8):	Wysoce konfigurowalny, niezależny od zarządcy okien frontend do HAL
 Name:		ivman
 Version:	0.6.13
 Release:	1
