@@ -1,12 +1,12 @@
 Summary:	An extremely flexible desktop independent frontend to HAL
 Summary(pl.UTF-8):	Wysoce konfigurowalny, niezależny od zarządcy okien frontend do HAL
 Name:		ivman
-Version:	0.6.13
-Release:	2
+Version:	0.6.14
+Release:	1
 License:	QPL
 Group:		Daemons
-Source0:	http://ovh.dl.sourceforge.net/sourceforge/ivman/%{name}-%{version}.tar.bz2
-# Source0-md5:	0edfa11c099a3f421cca029eacca5349
+Source0:	http://dl.sourceforge.net/ivman/%{name}-%{version}.tar.bz2
+# Source0-md5:	ebef12559268e2c5ea932cbb5aaa789e
 Source1:	%{name}.init
 URL:		http://ivman.sourceforge.net
 BuildRequires:	autoconf >= 2.50
@@ -19,16 +19,16 @@ BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.6.17
 BuildRequires:	pkgconfig
 Requires(post,preun):	/sbin/chkconfig
-Requires(pre):  /bin/id
-Requires(pre):  /usr/bin/getgid
-Requires(pre):  /usr/sbin/useradd
-Requires(pre):  /usr/sbin/groupadd
-Requires(postun):	/usr/sbin/userdel
 Requires(postun):	/usr/sbin/groupdel
+Requires(postun):	/usr/sbin/userdel
+Requires(pre):	/bin/id
+Requires(pre):	/usr/bin/getgid
+Requires(pre):	/usr/sbin/groupadd
+Requires(pre):	/usr/sbin/useradd
 Requires:	hal >= 0.4
 Requires:	rc-scripts >= 0.2.0
-Provides:	user(ivman)
 Provides:	group(plugdev)
+Provides:	user(ivman)
 Obsoletes:	ivman-devel
 Obsoletes:	ivman-static
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
