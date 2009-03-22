@@ -75,7 +75,7 @@ rm -rf $RPM_BUILD_ROOT
 	datadir=%{_datadir} \
 	sysconfdir=%{_sysconfdir}
 
-install -D %{SOURCE1} $RPM_BUILD_ROOT%{_initrddir}/ivman
+install -D %{SOURCE1} $RPM_BUILD_ROOT/etc/rc.d/init.d/ivman
 
 %find_lang %{name} --all-name
 
